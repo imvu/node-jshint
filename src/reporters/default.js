@@ -1,4 +1,5 @@
 "use strict";
+var fs = require('fs');
 
 module.exports = {
 	reporter: function (results, data, opts) {
@@ -28,7 +29,7 @@ module.exports = {
 		});
 
 		if (str) {
-			process.stdout.write(str + "\n" + len + ' error' + ((len === 1) ? '' : 's') + "\n");
+			fs.writeSync(1, str + "\n" + len + ' error' + ((len === 1) ? '' : 's') + "\n");
 		}
 	}
 };
